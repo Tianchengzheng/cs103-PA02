@@ -85,7 +85,7 @@ def process_choice(choice):
         cat = input('Enter transaction category: ') 
         date = input('Enter transaction date: ')
         desc = input('Enter transaction description: ')
-        newtransaction = {'amount': amount, 'category': cat, 'date': date, 'description': desc}
+        newtransaction = {'amount': amount, 'category': cat, 'date': date, 'desc': desc}
         transactions.add(newtransaction) 
         
     else:
