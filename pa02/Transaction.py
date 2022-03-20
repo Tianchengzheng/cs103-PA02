@@ -44,3 +44,5 @@ class Transaction():
         con.commit()
         con.close()
         return last_item[0]
+
+    
