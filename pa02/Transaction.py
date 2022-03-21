@@ -16,7 +16,7 @@ class Transaction():
         con= sqlite3.connect(dbfile)
         cur = con.cursor()
         cur.execute('''CREATE TABLE IF NOT EXISTS transactions
-                    (amount real, category text, date text, desc text)''')
+                    (item# real, amount real, category text, date text, desc text)''')
         con.commit()
         con.close()
         self.dbfile = dbfile
@@ -25,7 +25,7 @@ class Transaction():
         ''' return all of the transactions as a list of dicts.'''
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute("SELECT item#,* from transactions")
+        cur.execute("SELECT item# * from transactions")
         tuples = cur.fetchall()
         con.commit()
         con.close()
@@ -37,7 +37,7 @@ class Transaction():
         '''
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute("INSERT INTO transactions VALUES(?,?)",(item['amount'],item['category'], item['date'], item['desc']))
+        cur.execute("INSERT INTO transactions VALUES(?,?,?,?,?)",(item['item#'], item['amount'],item['category'], item['date'], item['desc']))
         con.commit()
         cur.execute("SELECT last_insert_item#()")
         last_item = cur.fetchone()
@@ -45,4 +45,10 @@ class Transaction():
         con.close()
         return last_item[0]
 
+    def delete(self, item):
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute("DELETE FROM transactions WHERE item# =  ?", item)
+        con.commit()
+        con.close()
     
