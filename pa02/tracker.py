@@ -133,7 +133,10 @@ def print_transactions(items):
     print('-'*40)
     for item in items:
         values = tuple(item.values()) 
-        print("%-10s %-10s %-10s %-10s %-30s"%values)
+        if len(values) == 5:
+            print("%-10s %-10s %-10s %-10s %-30s"%values)
+        else:
+            print("%-10s %-10s"%values)
 
 def print_category(cat):
     print("%-3d %-10s %-30s"%(cat['rowid'],cat['name'],cat['desc']))

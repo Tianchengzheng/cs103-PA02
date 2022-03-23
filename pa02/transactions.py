@@ -14,6 +14,10 @@ def to_tran_dict_list(trantuples):
     ''' convert a list of transaction tuples into a list of dictionaries'''
     return [to_tran_dict(tran) for tran in trantuples]
 
+def to_tran_dict_list_date(trantuples):
+    ''' convert a list of transaction tuples into a list of dictionaries'''
+    return [to_tran_dict_date(tran) for tran in trantuples]
+
 class Transaction():
 
     def __init__(self, dbfile):
@@ -63,7 +67,7 @@ class Transaction():
         cur.execute('SELECT date, sum(amount) FROM transactions GROUP BY date')
         by_date = cur.fetchall()
         con.close()
-        return to_tran_dict_date(by_date)
+        return to_tran_dict_list_date(by_date)
 
     # Iria Wang
     def summarize_by_month(self):
