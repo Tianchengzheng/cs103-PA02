@@ -78,19 +78,26 @@ def process_choice(choice):
         desc = input("new category description: ")
         cat = {'name':name, 'desc':desc}
         category.update(rowid,cat)
-    elif choice == '4': #Show transactions
+    elif choice == '4': # Show transactions
         print_transactions(transactions.select_all())
-    elif choice == '5': #Add transaction
+    elif choice == '5': # Add transaction
         amount = input('Enter transasction amount: ')
         cat = input('Enter transaction category: ') 
-        date = input('Enter transaction date: ')
+        date = input('Enter transaction date (mm/dd/yyyy): ')
         desc = input('Enter transaction description: ')
         newtransaction = {'amount': amount, 'category': cat, 'date': date, 'desc': desc}
         transactions.add(newtransaction)
-    elif choice == '6':
+    elif choice == '6': # Delete transaction
         item_number = input('Enter transacton number: ')
         transactions.delete(item_number)
-
+    elif choice == '7': # Summarize transaction by date
+        pass
+    elif choice == '8':
+        pass
+    elif choice == '9':
+        pass
+    elif choice == '10':
+        pass
     elif choice == '11':    #print menu
         print('0. quit\n1. show categories\n2. add category\n3. modify category\n4. show transactions\n5. add transaction\n6. delete transaction\n7. summarize transactions by date\n8. summarize transactions by month\n9. summarize transactions by year\n10. summarize transactions by category\n11. print this menu')
         

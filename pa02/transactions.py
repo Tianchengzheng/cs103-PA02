@@ -13,7 +13,7 @@ def to_tran_dict_list(trantuples):
 class Transaction():
 
     def __init__(self, dbfile):
-        con= sqlite3.connect(dbfile)
+        con = sqlite3.connect(dbfile)
         cur = con.cursor()
         cur.execute('''CREATE TABLE IF NOT EXISTS transactions
                     (item# real, amount real, category text, date text, desc text)''')
@@ -23,7 +23,7 @@ class Transaction():
     
     def select_all(self):
         ''' return all of the transactions as a list of dicts.'''
-        con= sqlite3.connect(self.dbfile)
+        con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
         cur.execute("SELECT item# * from transactions")
         tuples = cur.fetchall()
@@ -35,7 +35,7 @@ class Transaction():
         ''' add a transaction to the transactions table.
             this returns the item# of the inserted element
         '''
-        con= sqlite3.connect(self.dbfile)
+        con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
         cur.execute("INSERT INTO transactions VALUES(?,?,?,?,?)",(item['item#'], item['amount'],item['category'], item['date'], item['desc']))
         con.commit()
@@ -46,9 +46,18 @@ class Transaction():
         return last_item[0]
 
     def delete(self, item):
-        con= sqlite3.connect(self.dbfile)
+        con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
         cur.execute("DELETE FROM transactions WHERE item# =  ?", item)
         con.commit()
         con.close()
+
+    # Iria Wang
+    def summarize_by_date(self):
+        con = sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('SELECT sum(amount) FROM transactions GROUP BY date')
+        by_date = cur.fetchall()
+        con.close()
+        return by_date
     
