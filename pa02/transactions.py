@@ -87,3 +87,15 @@ class Transaction():
         by_category = cur.fetchall()
         con.close()
         return by_category
+    
+    
+
+    def select_one(self,rowid):
+        ''' return a transaction with a specified rowid '''
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute("SELECT rowid,* from transactions where rowid=(?)",(rowid,) )
+        tuples = cur.fetchall()
+        con.commit()
+        con.close()
+        return to_tran_dict(tuples[0])
