@@ -83,7 +83,7 @@ def process_choice(choice):
     elif choice == '5': # Add transaction
         amount = input('Enter transasction amount: ')
         cat = input('Enter transaction category: ') 
-        date = input('Enter transaction date (mm/dd/yyyy): ')
+        date = input('Enter transaction date (yyyy/mm/dd): ')
         desc = input('Enter transaction description: ')
         newtransaction = {'amount': amount, 'category': cat, 'date': date, 'desc': desc}
         transactions.add(newtransaction)
@@ -91,11 +91,11 @@ def process_choice(choice):
         item_number = input('Enter transacton number: ')
         transactions.delete(item_number)
     elif choice == '7': # Summarize transaction by date
-        pass
-    elif choice == '8':
-        pass
-    elif choice == '9':
-        pass
+        print_transactions(transactions.summarize_by_date())
+    elif choice == '8': # Summarize transaction by month
+        print_transactions(transactions.summarize_by_month())
+    elif choice == '9': # Summarize transaction by year
+        print_transactions(transactions.summarize_by_year())
     elif choice == '10':
         pass
     elif choice == '11':    #print menu

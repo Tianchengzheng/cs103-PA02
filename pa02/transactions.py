@@ -60,4 +60,21 @@ class Transaction():
         by_date = cur.fetchall()
         con.close()
         return by_date
+
+    # Iria Wang
+    def summarize_by_month(self):
+        con = sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('SELECT sum(amount) FROM transactions GROUP BY substr(date, 1, 7)')
+        by_date = cur.fetchall()
+        con.close()
+        return by_date
     
+    # Iria Wang
+    def summarize_by_year(self):
+        con = sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('SELECT sum(amount) FROM transactions GROUP BY substr(date, 1, 4)')
+        by_date = cur.fetchall()
+        con.close()
+        return by_date
