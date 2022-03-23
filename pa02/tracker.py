@@ -31,7 +31,7 @@ could be replaced with PostgreSQL or Pandas or straight python lists
 
 '''
 
-from Transaction import Transaction
+from transactions import Transaction
 from category import Category
 import sys
 
