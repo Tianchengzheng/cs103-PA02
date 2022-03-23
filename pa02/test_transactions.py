@@ -90,3 +90,21 @@ def test_add(med_db):
     assert tran1['category']==tran0['category']
     assert tran1['date']==tran0['date']
     assert tran1['desc']==tran0['desc']
+
+@pytest.mark.delete
+def test_delete(med_db):
+    ''' add a category to db, delete it, and see that the size changes'''
+    # first we get the initial table
+    trans0 = med_db.select_all()
+
+    # then we add this category to the table and get the new list of rows
+    trans0 = {'amount':'50','category':'books', 'date': '2020/06/13', 'desc:': 'textbook'}
+    rowid = med_db.add(trans0)
+    trans1 = med_db.select_all()
+
+    # now we delete the category and again get the new list of rows
+    med_db.delete(rowid)
+    trans2 = med_db.select_all()
+
+    assert len(trans0)==len(trans2)
+    assert len(trans2) == len(trans1)-1
