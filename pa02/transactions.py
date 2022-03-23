@@ -6,6 +6,10 @@ def to_tran_dict(trantuple):
     tran = {'itemnum':trantuple[0], 'amount':trantuple[1], 'category':trantuple[2], 'date': trantuple[3], 'desc': trantuple[4]}
     return tran
 
+def to_tran_dict_date(trantuple):
+    tran = {'date':trantuple[0], 'total':trantuple[1]}
+    return tran
+
 def to_tran_dict_list(trantuples):
     ''' convert a list of transaction tuples into a list of dictionaries'''
     return [to_tran_dict(tran) for tran in trantuples]
@@ -56,10 +60,10 @@ class Transaction():
     def summarize_by_date(self):
         con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute('SELECT sum(amount) FROM transactions GROUP BY date')
+        cur.execute('SELECT date, sum(amount) FROM transactions GROUP BY date')
         by_date = cur.fetchall()
         con.close()
-        return to_tran_dict_list(by_date)
+        return to_tran_dict_date(by_date)
 
     # Iria Wang
     def summarize_by_month(self):
