@@ -31,6 +31,47 @@ def small_db(empty_db):
     empty_db.delete(id1)
 
 
+@pytest.fixture
+def med_db(empty_db):
+    ''' create a small database, and tear it down later'''
+    tran1 = {'amount':'12','category':'food', 'date': '2020/02/02', 'desc:': 'testtest'}
+    tran2 = {'amount':'15','category':'not food', 'date': '2020/05/12', 'desc:': 'testing again'}
+    tran3 = {'amount':'13','category':'toys', 'date': '2020/02/11', 'desc:': 'lego batman'}
+    tran4 = {'amount':'122','category':'food', 'date': '2019/08/16', 'desc:': 'testtest'}
+    tran5 = {'amount':'132','category':'toys', 'date': '2017/07/22', 'desc:': 'legos'}
+    tran6 = {'amount':'126','category':'food', 'date': '2021/09/02', 'desc:': 'testtesttest'}
+    tran7 = {'amount':'159','category':'not food', 'date': '2022/07/03', 'desc:': 'testingtesting'}
+    tran8 = {'amount':'130','category':'toys', 'date': '2022/03/18', 'desc:': 'legossss'}
+    tran9 = {'amount':'121','category':'food', 'date': '2018/06/11', 'desc:': 't'}
+    tran10 = {'amount':'153','category':'not food', 'date': '2010/02/12', 'desc:': 'testing...'}
+    tran11 = {'amount':'12','category':'toys', 'date': '2021/06/12', 'desc:': 'legoooo'}
+    tran12 = {'amount':'153','category':'not food', 'date': '2018/05/18', 'desc:': 'testingggg'}
+    id1=empty_db.add(tran1)
+    id2=empty_db.add(tran2)
+    id3=empty_db.add(tran3)
+    id4=empty_db.add(tran4)
+    id5=empty_db.add(tran5)
+    id6=empty_db.add(tran6)
+    id7=empty_db.add(tran7)
+    id8=empty_db.add(tran8)
+    id9=empty_db.add(tran9)
+    id10=empty_db.add(tran10)
+    id11=empty_db.add(tran11)
+    id12=empty_db.add(tran12)
+    yield empty_db
+    empty_db.delete(id12)
+    empty_db.delete(id11)
+    empty_db.delete(id10)
+    empty_db.delete(id9)
+    empty_db.delete(id8)
+    empty_db.delete(id7)
+    empty_db.delete(id6)
+    empty_db.delete(id5)
+    empty_db.delete(id4)
+    empty_db.delete(id3)
+    empty_db.delete(id2)
+    empty_db.delete(id1)
+
 @pytest.mark.add
 def test_add(med_db):
     ''' add a category to db, the select it, then delete it'''
