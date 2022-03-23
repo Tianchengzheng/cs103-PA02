@@ -96,8 +96,8 @@ def process_choice(choice):
         print_transactions(transactions.summarize_by_month())
     elif choice == '9': # Summarize transaction by year
         print_transactions(transactions.summarize_by_year())
-    elif choice == '10':
-        pass
+    elif choice == '10': # Summarize transaction by category
+        print_transactions(transactions.summarize_by_category()) 
     elif choice == '11':    #print menu
         print('0. quit\n1. show categories\n2. add category\n3. modify category\n4. show transactions\n5. add transaction\n6. delete transaction\n7. summarize transactions by date\n8. summarize transactions by month\n9. summarize transactions by year\n10. summarize transactions by category\n11. print this menu')
         

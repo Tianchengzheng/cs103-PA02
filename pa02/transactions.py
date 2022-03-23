@@ -78,3 +78,12 @@ class Transaction():
         by_date = cur.fetchall()
         con.close()
         return by_date
+
+    # Tiancheng Zheng
+    def summarize_by_category(self):
+        con = sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('SELECT sum(amount) FROM transactions GROUP BY category')
+        by_category = cur.fetchall()
+        con.close()
+        return by_category
