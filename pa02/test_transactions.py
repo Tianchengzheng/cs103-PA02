@@ -16,6 +16,20 @@ def empty_db(dbfile):
     db = Transaction(dbfile)
     yield db
 
+@pytest.fixture
+def small_db(empty_db):
+    ''' create a small database, and tear it down later'''
+    tran1 = {'amount':'12','category':'food', 'date': '2020/06/12', 'desc:': 'testtest'}
+    tran2 = {'amount':'15','category':'not food', 'date': '2020/07/12', 'desc:': 'testing again'}
+    tran3 = {'amount':'13','category':'toys', 'date': '2020/06/12', 'desc:': 'lego batman'}
+    id1=empty_db.add(tran1)
+    id2=empty_db.add(tran2)
+    id3=empty_db.add(tran3)
+    yield empty_db
+    empty_db.delete(id3)
+    empty_db.delete(id2)
+    empty_db.delete(id1)
+
 
 @pytest.mark.add
 def test_add(med_db):
