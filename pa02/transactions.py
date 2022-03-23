@@ -59,7 +59,7 @@ class Transaction():
         cur.execute('SELECT sum(amount) FROM transactions GROUP BY date')
         by_date = cur.fetchall()
         con.close()
-        return by_date
+        return to_tran_dict_list(by_date)
 
     # Iria Wang
     def summarize_by_month(self):
@@ -68,7 +68,7 @@ class Transaction():
         cur.execute('SELECT sum(amount) FROM transactions GROUP BY substr(date, 1, 7)')
         by_date = cur.fetchall()
         con.close()
-        return by_date
+        return to_tran_dict_list(by_date)
     
     # Iria Wang
     def summarize_by_year(self):
@@ -77,7 +77,7 @@ class Transaction():
         cur.execute('SELECT sum(amount) FROM transactions GROUP BY substr(date, 1, 4)')
         by_date = cur.fetchall()
         con.close()
-        return by_date
+        return to_tran_dict_list(by_date)
 
     # Tiancheng Zheng
     def summarize_by_category(self):
@@ -86,7 +86,7 @@ class Transaction():
         cur.execute('SELECT sum(amount) FROM transactions GROUP BY category')
         by_category = cur.fetchall()
         con.close()
-        return by_category
+        return to_tran_dict_list(by_category)
     
     
 
