@@ -68,28 +68,28 @@ def process_choice(choice):
         cats = category.select_all()
         print_categories(cats)
     elif choice=='2':
-        name = input("category name: ")
-        desc = input("category description: ")
+        name = raw_input("category name: ")
+        desc = raw_input("category description: ")
         cat = {'name':name, 'desc':desc}
         category.add(cat)
     elif choice=='3':
         print("modifying category")
-        rowid = int(input("rowid: "))
-        name = input("new category name: ")
-        desc = input("new category description: ")
+        rowid = int(raw_input("rowid: "))
+        name = raw_input("new category name: ")
+        desc = raw_input("new category description: ")
         cat = {'name':name, 'desc':desc}
         category.update(rowid,cat)
     elif choice == '4': # Show transactions
         print_transactions(transactions.select_all(), False)
     elif choice == '5': # Add transaction
-        amount = input('Enter transasction amount: ')
-        cat = input('Enter transaction category: ') 
-        date = input('Enter transaction date (yyyy/mm/dd): ')
-        desc = input('Enter transaction description: ')
+        amount = raw_input('Enter transasction amount: ')
+        cat = raw_input('Enter transaction category: ') 
+        date = raw_input('Enter transaction date (yyyy/mm/dd): ')
+        desc = raw_input('Enter transaction description: ')
         newtransaction = {'amount': amount, 'category': cat, 'date': date, 'desc': desc}
         transactions.add(newtransaction)
     elif choice == '6': # Delete transaction
-        item_number = input('Enter transacton number: ')
+        item_number = raw_input('Enter transacton number: ')
         transactions.delete(item_number)
     elif choice == '7': # Summarize transaction by date
         print_transactions(transactions.summarize_by_date(), True)
@@ -104,7 +104,7 @@ def process_choice(choice):
     else:
         print("choice",choice,"not yet implemented")
 
-    choice = input("> ")
+    choice = raw_input("> ")
     return(choice)
 
 
@@ -113,7 +113,7 @@ def toplevel():
 
     ''' read the command args and process them'''
     print(menu)
-    choice = input("> ")
+    choice = raw_input("> ")
     while choice !='0' :
         choice = process_choice(choice)
     print('bye')
