@@ -53,7 +53,6 @@ MENU = '''
 9. summarize transactions by year
 10. summarize transactions by category
 11. print this menu
-12. delete all
 '''
 
 
