@@ -4,7 +4,7 @@ import sqlite3
 def to_tran_dict(trantuple):
     ''' transaction is a transaction tuple (item#, amount, category, date, desc)'''
     tran = {'itemnum':trantuple[0], 'amount':trantuple[1], 'category':trantuple[2],
-        'date': trantuple[3], 'desc': trantuple[4]}
+            'date': trantuple[3], 'desc': trantuple[4]}
     return tran
 
 def to_tran_dict_date(trantuple):
@@ -55,7 +55,7 @@ class Transaction():
         con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
         cur.execute('INSERT INTO transactions VALUES(?,?,?,?)',
-            (item['amount'], item['category'], item['date'], item['desc']))
+                    (item['amount'], item['category'], item['date'], item['desc']))
         con.commit()
         cur.execute('SELECT last_insert_rowid()')
         last_item = cur.fetchone()
@@ -98,7 +98,7 @@ class Transaction():
         con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
         cur.execute('SELECT substr(date, 1, 4), sum(amount) FROM transactions ' +
-        'GROUP BY substr(date, 1, 4)')
+                    'GROUP BY substr(date, 1, 4)')
         by_date = cur.fetchall()
         con.close()
         return to_tran_dict_list_date(by_date)
@@ -111,11 +111,11 @@ class Transaction():
         by_category = cur.fetchall()
         con.close()
         return to_tran_dict_list_category(by_category)
-    def select_one(self,rowid):
+    def select_one(self, rowid):
         ''' return a transaction with a specified rowid '''
-        con= sqlite3.connect(self.dbfile)
+        con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute("SELECT rowid,* from transactions where rowid=(?)",(rowid,))
+        cur.execute("SELECT rowid,* from transactions where rowid=(?)", (rowid,))
         tuples = cur.fetchall()
         con.commit()
         con.close()
