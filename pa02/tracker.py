@@ -59,9 +59,8 @@ MENU = '''
 
 
 
-"""Processes choice and returns output"""
 def process_choice(choice):
-
+    '''Processes choice and returns output'''
     if choice=='0':
         return
     elif choice=='1':
@@ -107,7 +106,7 @@ def process_choice(choice):
     choice = input("> ")
     return choice
 
-"""main  method to run program"""
+
 def toplevel():
     ''' handle the user's choice '''
 
@@ -122,7 +121,7 @@ def toplevel():
 # here are some helper functions
 #
 
-"""print transactions from a given set"""
+
 def print_transactions(items, isSummary):
     ''' print the transactions '''
     if len(items)==0:
@@ -141,12 +140,14 @@ def print_transactions(items, isSummary):
         else:
             print("%-10s %-10s"%values)
 
-"""prints a category"""
+
 def print_category(cat):
+    '''print a category'''
     print("%-3d %-10s %-30s"%(cat['rowid'],cat['name'],cat['desc']))
 
-"""print set of categories"""
+
 def print_categories(cats):
+    '''print multiple categories'''
     print("%-3s %-10s %-30s"%("id","name","description"))
     print('-'*45)
     for cat in cats:
