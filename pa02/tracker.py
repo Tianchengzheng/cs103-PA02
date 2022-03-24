@@ -26,7 +26,7 @@ In place of SQL queries, we will have method calls.
 
 This app will store the data in a SQLite database ~/tracker.db
 
-Note the actual implementation of the ORM is hidden and so it 
+Note the actual implementation of the ORM is hidden and so it
 could be replaced with PostgreSQL or Pandas or straight python lists
 
 '''
@@ -68,28 +68,28 @@ def process_choice(choice):
         cats = category.select_all()
         print_categories(cats)
     elif choice=='2':
-        name = raw_input("category name: ")
-        desc = raw_input("category description: ")
+        name = input("category name: ")
+        desc = input("category description: ")
         cat = {'name':name, 'desc':desc}
         category.add(cat)
     elif choice=='3':
         print("modifying category")
-        rowid = int(raw_input("rowid: "))
-        name = raw_input("new category name: ")
-        desc = raw_input("new category description: ")
+        rowid = int(input("rowid: "))
+        name = input("new category name: ")
+        desc = input("new category description: ")
         cat = {'name':name, 'desc':desc}
         category.update(rowid,cat)
     elif choice == '4': # Show transactions
         print_transactions(transactions.select_all(), False)
     elif choice == '5': # Add transaction
-        amount = raw_input('Enter transasction amount: ')
-        cat = raw_input('Enter transaction category: ') 
-        date = raw_input('Enter transaction date (yyyy/mm/dd): ')
-        desc = raw_input('Enter transaction description: ')
+        amount = input('Enter transasction amount: ')
+        cat = input('Enter transaction category: ')
+        date = input('Enter transaction date (yyyy/mm/dd): ')
+        desc = input('Enter transaction description: ')
         newtransaction = {'amount': amount, 'category': cat, 'date': date, 'desc': desc}
         transactions.add(newtransaction)
     elif choice == '6': # Delete transaction
-        item_number = raw_input('Enter transacton number: ')
+        item_number = input('Enter transacton number: ')
         transactions.delete(item_number)
     elif choice == '7': # Summarize transaction by date
         print_transactions(transactions.summarize_by_date(), True)
@@ -98,14 +98,14 @@ def process_choice(choice):
     elif choice == '9': # Summarize transaction by year
         print_transactions(transactions.summarize_by_year(), True)
     elif choice == '10': # Summarize transaction by category
-        print_transactions(transactions.summarize_by_category(), True) 
+        print_transactions(transactions.summarize_by_category(), True)
     elif choice == '11':    #print menu
-        print('0. quit\n1. show categories\n2. add category\n3. modify category\n4. show transactions\n5. add transaction\n6. delete transaction\n7. summarize transactions by date\n8. summarize transactions by month\n9. summarize transactions by year\n10. summarize transactions by category\n11. print this menu')
+        print(menu)
     else:
         print("choice",choice,"not yet implemented")
 
-    choice = raw_input("> ")
-    return(choice)
+    choice = input("> ")
+    return choice
 
 
 def toplevel():
@@ -113,7 +113,7 @@ def toplevel():
 
     ''' read the command args and process them'''
     print(menu)
-    choice = raw_input("> ")
+    choice = input("> ")
     while choice !='0' :
         choice = process_choice(choice)
     print('bye')
@@ -134,7 +134,7 @@ def print_transactions(items, isSummary):
         print("%-10s %-10s %-10s %-10s %-30s"%('item #','amount','category','date','description'))
     print('-'*40)
     for item in items:
-        values = tuple(item.values()) 
+        values = tuple(item.values())
         if not isSummary:
             print("%-10s %-10s %-10s %-10s %-30s"%values)
         else:
@@ -153,4 +153,3 @@ def print_categories(cats):
 # here is the main call!
 
 toplevel()
-
