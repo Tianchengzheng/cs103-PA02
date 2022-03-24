@@ -128,8 +128,8 @@ def test_summarizeyear(med_db):
 def test_summarizemonth(med_db):
     newdb = med_db.summarize_by_month()
     dbrow = newdb[0]
-    assert dbrow['date']=='1900'
-    assert dbrow['total']==40
+    assert dbrow['date']=='1900/02'
+    assert dbrow['total']==27
 
 @pytest.mark.summarizecat
 def test_summarizecat(med_db):
