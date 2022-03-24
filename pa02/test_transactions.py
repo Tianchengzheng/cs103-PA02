@@ -98,8 +98,8 @@ def test_delete(med_db):
     trans0 = med_db.select_all()
 
     # then we add this category to the table and get the new list of rows
-    trans0 = {'amount':50,'category':'books', 'date': '2020/06/13', 'desc': 'textbook'}
-    rowid = med_db.add(trans0)
+    trans = {'amount':50,'category':'books', 'date': '2020/06/13', 'desc': 'textbook'}
+    rowid = med_db.add(trans)
     trans1 = med_db.select_all()
 
     # now we delete the category and again get the new list of rows
@@ -113,6 +113,6 @@ def test_delete(med_db):
 @pytest.mark.summarizedate
 def test_summarizedate(med_db):
     newdb = med_db.summarize_by_date()
-    dbrow = newdb.select_one(1)
+    dbrow = newdb[0]
     assert dbrow['date']=='1900/02/02'
-    assert dbrow['amount']==27
+    assert dbrow['total']==27

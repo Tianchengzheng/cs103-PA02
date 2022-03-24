@@ -33,7 +33,7 @@ class Transaction():
         ''' return all of the transactions as a list of dicts.'''
         con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute("SELECT rowid, * from transactions")
+        cur.execute('SELECT rowid, * from transactions')
         tuples = cur.fetchall()
         con.commit()
         con.close()
@@ -45,9 +45,9 @@ class Transaction():
         '''
         con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute("INSERT INTO transactions VALUES(?,?,?,?)",(item['amount'],item['category'], item['date'], item['desc']))
+        cur.execute('INSERT INTO transactions VALUES(?,?,?,?)',(item['amount'],item['category'], item['date'], item['desc']))
         con.commit()
-        cur.execute("SELECT last_insert_rowid()")
+        cur.execute('SELECT last_insert_rowid()')
         last_item = cur.fetchone()
         con.commit()
         con.close()
@@ -56,7 +56,7 @@ class Transaction():
     def delete(self, item):
         con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute("DELETE FROM transactions WHERE rowid =  ?", item)
+        cur.execute('DELETE FROM transactions WHERE rowid = ?', (item,))
         con.commit()
         con.close()
 
