@@ -34,18 +34,18 @@ def small_db(empty_db):
 @pytest.fixture
 def med_db(empty_db):
     ''' create a small database, and tear it down later'''
-    tran1 = {'amount':'12','category':'food', 'date': '2020/02/02', 'desc:': 'testtest'}
-    tran2 = {'amount':'15','category':'not food', 'date': '2020/05/12', 'desc:': 'testing again'}
-    tran3 = {'amount':'13','category':'toys', 'date': '2020/02/11', 'desc:': 'lego batman'}
-    tran4 = {'amount':'122','category':'food', 'date': '2019/08/16', 'desc:': 'testtest'}
-    tran5 = {'amount':'132','category':'toys', 'date': '2017/07/22', 'desc:': 'legos'}
-    tran6 = {'amount':'126','category':'food', 'date': '2021/09/02', 'desc:': 'testtesttest'}
-    tran7 = {'amount':'159','category':'not food', 'date': '2022/07/03', 'desc:': 'testingtesting'}
-    tran8 = {'amount':'130','category':'toys', 'date': '2022/03/18', 'desc:': 'legossss'}
-    tran9 = {'amount':'121','category':'food', 'date': '2018/06/11', 'desc:': 't'}
-    tran10 = {'amount':'153','category':'not food', 'date': '2010/02/12', 'desc:': 'testing...'}
-    tran11 = {'amount':'12','category':'toys', 'date': '2021/06/12', 'desc:': 'legoooo'}
-    tran12 = {'amount':'153','category':'not food', 'date': '2018/05/18', 'desc:': 'testingggg'}
+    tran1 = {'amount':'12','category':'food', 'date': '2020/02/02', 'desc': 'testtest'}
+    tran2 = {'amount':'15','category':'not food', 'date': '2020/05/12', 'desc': 'testing again'}
+    tran3 = {'amount':'13','category':'toys', 'date': '2020/02/11', 'desc': 'lego batman'}
+    tran4 = {'amount':'122','category':'food', 'date': '2019/08/16', 'desc': 'testtest'}
+    tran5 = {'amount':'132','category':'toys', 'date': '2017/07/22', 'desc': 'legos'}
+    tran6 = {'amount':'126','category':'food', 'date': '2021/09/02', 'desc': 'testtesttest'}
+    tran7 = {'amount':'159','category':'not food', 'date': '2022/07/03', 'desc': 'testingtesting'}
+    tran8 = {'amount':'130','category':'toys', 'date': '2022/03/18', 'desc': 'legossss'}
+    tran9 = {'amount':'121','category':'food', 'date': '2018/06/11', 'desc': 't'}
+    tran10 = {'amount':'153','category':'not food', 'date': '2010/02/12', 'desc': 'testing...'}
+    tran11 = {'amount':'12','category':'toys', 'date': '2021/06/12', 'desc': 'legoooo'}
+    tran12 = {'amount':'153','category':'not food', 'date': '2018/05/18', 'desc': 'testingggg'}
     id1=empty_db.add(tran1)
     id2=empty_db.add(tran2)
     id3=empty_db.add(tran3)
