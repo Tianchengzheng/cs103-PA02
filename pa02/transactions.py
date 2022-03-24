@@ -73,7 +73,7 @@ class Transaction():
     def summarize_by_month(self):
         con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute('SELECT sum(amount) FROM transactions GROUP BY substr(date, 1, 7)')
+        cur.execute('SELECT substr(date, 1, 7), sum(amount) FROM transactions GROUP BY substr(date, 1, 7)')
         by_date = cur.fetchall()
         con.close()
         return to_tran_dict_list(by_date)
@@ -82,7 +82,7 @@ class Transaction():
     def summarize_by_year(self):
         con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute('SELECT sum(amount) FROM transactions GROUP BY substr(date, 1, 4)')
+        cur.execute('SELECT substr(date, 1, 4), sum(amount) FROM transactions GROUP BY substr(date, 1, 4)')
         by_date = cur.fetchall()
         con.close()
         return to_tran_dict_list(by_date)
@@ -91,7 +91,7 @@ class Transaction():
     def summarize_by_category(self):
         con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute('SELECT sum(amount) FROM transactions GROUP BY category')
+        cur.execute('SELECT category, sum(amount) FROM transactions GROUP BY category')
         by_category = cur.fetchall()
         con.close()
         return to_tran_dict_list(by_category)
