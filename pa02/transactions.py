@@ -3,8 +3,8 @@ import sqlite3
 
 def to_tran_dict(trantuple):
     ''' transaction is a transaction tuple (item#, amount, category, date, desc)'''
-    tran = {'itemnum':trantuple[0], 'amount':trantuple[1], 'category':trantuple[2],
-    'date': trantuple[3], 'desc': trantuple[4]}
+    tran = {'itemnum':trantuple[0], 'amount':trantuple[1], 'category':trantuple[2], 
+        'date': trantuple[3], 'desc': trantuple[4]}
     return tran
 
 def to_tran_dict_date(trantuple):
@@ -54,8 +54,8 @@ class Transaction():
         '''
         con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute('INSERT INTO transactions VALUES(?,?,?,?)',(item['amount'],item['category'],
-        item['date'], item['desc']))
+        cur.execute('INSERT INTO transactions VALUES(?,?,?,?)', 
+            (item['amount'], item['category'], item['date'], item['desc']))
         con.commit()
         cur.execute('SELECT last_insert_rowid()')
         last_item = cur.fetchone()
@@ -86,11 +86,12 @@ class Transaction():
         '''Groups the transactions by month'''
         con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute('SELECT substr(date, 1, 7), sum(amount) FROM transactions ' +
-        'GROUP BY substr(date, 1, 7)')
+        cur.execute('''SELECT substr(date, 1, 7), 
+            sum(amount) FROM transactions GROUP BY substr(date, 1, 7)''')
         by_date = cur.fetchall()
         con.close()
         return to_tran_dict_list_date(by_date)
+
     # Iria Wang
     def summarize_by_year(self):
         '''Groups the transactions by year'''
