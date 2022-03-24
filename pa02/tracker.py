@@ -54,6 +54,7 @@ menu = '''
 9. summarize transactions by year
 10. summarize transactions by category
 11. print this menu
+12. delete all
 '''
 
 
@@ -100,7 +101,6 @@ def process_choice(choice):
         print_transactions(transactions.summarize_by_category(), True) 
     elif choice == '11':    #print menu
         print('0. quit\n1. show categories\n2. add category\n3. modify category\n4. show transactions\n5. add transaction\n6. delete transaction\n7. summarize transactions by date\n8. summarize transactions by month\n9. summarize transactions by year\n10. summarize transactions by category\n11. print this menu')
-        
     else:
         print("choice",choice,"not yet implemented")
 
