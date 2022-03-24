@@ -42,8 +42,8 @@ def med_db(empty_db):
     tran6 = {'amount':126,'category':'food', 'date': '2021/09/02', 'desc': 'testtesttest'}
     tran7 = {'amount':159,'category':'not food', 'date': '2022/07/03', 'desc': 'testingtesting'}
     tran8 = {'amount':130,'category':'toys', 'date': '2022/03/18', 'desc': 'legossss'}
-    tran9 = {'amount':121,'category':'food', 'date': '2018/06/11', 'desc': 't'}
-    tran10 = {'amount':153,'category':'not food', 'date': '2010/02/12', 'desc': 'testing...'}
+    tran9 = {'amount':121,'category':'aaaab', 'date': '2018/06/11', 'desc': 't'}
+    tran10 = {'amount':153,'category':'aaaab', 'date': '2010/02/12', 'desc': 'testing...'}
     tran11 = {'amount':12,'category':'toys', 'date': '2021/06/12', 'desc': 'legoooo'}
     tran12 = {'amount':153,'category':'not food', 'date': '2018/05/18', 'desc': 'testingggg'}
     id1=empty_db.add(tran1)
@@ -123,3 +123,10 @@ def test_summarizeyear(med_db):
     dbrow = newdb[0]
     assert dbrow['date']=='1900'
     assert dbrow['total']==40
+
+@pytest.mark.summarizecat
+def test_summarizecat(med_db):
+    newdb = med_db.summarize_by_category()
+    dbrow = newdb[0]
+    assert dbrow['category']=='aaab'
+    assert dbrow['total']== 274
