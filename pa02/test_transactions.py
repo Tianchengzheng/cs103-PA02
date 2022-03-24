@@ -36,7 +36,7 @@ def med_db(empty_db):
     ''' create a small database, and tear it down later'''
     tran1 = {'amount':12,'category':'food', 'date': '1900/02/02', 'desc': 'testtest'}
     tran2 = {'amount':15,'category':'not food', 'date': '1900/02/02', 'desc': 'testing again'}
-    tran3 = {'amount':13,'category':'toys', 'date': '2020/02/11', 'desc': 'lego batman'}
+    tran3 = {'amount':13,'category':'toys', 'date': '1900/03/11', 'desc': 'lego batman'}
     tran4 = {'amount':122,'category':'food', 'date': '2019/08/16', 'desc': 'testtest'}
     tran5 = {'amount':132,'category':'toys', 'date': '2017/07/22', 'desc': 'legos'}
     tran6 = {'amount':126,'category':'food', 'date': '2021/09/02', 'desc': 'testtesttest'}
