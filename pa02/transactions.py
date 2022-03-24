@@ -10,6 +10,10 @@ def to_tran_dict_date(trantuple):
     tran = {'date':trantuple[0], 'total':trantuple[1]}
     return tran
 
+def to_tran_dict_category(trantuple):
+    tran = {'category':trantuple[0], 'total':trantuple[1]}
+    return tran
+
 def to_tran_dict_list(trantuples):
     ''' convert a list of transaction tuples into a list of dictionaries'''
     return [to_tran_dict(tran) for tran in trantuples]
@@ -17,6 +21,10 @@ def to_tran_dict_list(trantuples):
 def to_tran_dict_list_date(trantuples):
     ''' convert a list of transaction tuples into a list of dictionaries'''
     return [to_tran_dict_date(tran) for tran in trantuples]
+
+def to_tran_dict_list_category(trantuples):
+    ''' convert a list of transaction tuples into a list of dictionaries'''
+    return [to_tran_dict_category(tran) for tran in trantuples]
 
 class Transaction():
 
@@ -76,7 +84,7 @@ class Transaction():
         cur.execute('SELECT substr(date, 1, 7), sum(amount) FROM transactions GROUP BY substr(date, 1, 7)')
         by_date = cur.fetchall()
         con.close()
-        return to_tran_dict_list(by_date)
+        return to_tran_dict_list_date(by_date)
     
     # Iria Wang
     def summarize_by_year(self):
@@ -85,7 +93,7 @@ class Transaction():
         cur.execute('SELECT substr(date, 1, 4), sum(amount) FROM transactions GROUP BY substr(date, 1, 4)')
         by_date = cur.fetchall()
         con.close()
-        return to_tran_dict_list(by_date)
+        return to_tran_dict_list_date(by_date)
 
     # Tiancheng Zheng
     def summarize_by_category(self):
@@ -94,7 +102,7 @@ class Transaction():
         cur.execute('SELECT category, sum(amount) FROM transactions GROUP BY category')
         by_category = cur.fetchall()
         con.close()
-        return to_tran_dict_list(by_category)
+        return to_tran_dict_list_category(by_category)
     
     
 

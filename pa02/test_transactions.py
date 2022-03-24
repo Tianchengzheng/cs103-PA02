@@ -128,5 +128,5 @@ def test_summarizeyear(med_db):
 def test_summarizecat(med_db):
     newdb = med_db.summarize_by_category()
     dbrow = newdb[0]
-    assert dbrow['category']=='aaab'
+    assert dbrow['category']=='aaaab'
     assert dbrow['total']== 274
