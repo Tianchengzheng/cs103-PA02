@@ -4,7 +4,7 @@
 
 This app uses SQL to run an app that tracks a user's transactions. Transactions can be added, searched for, shown, deleted, and summarized based on categories and dates.
 
-Below is a script showing pylint and pytest results, and demonstrating the app usage. This is copyied from the transcript.
+Below is a script showing pylint and pytest results, and demonstrating the app usage. This is copied from the transcript.
 
 # script start and cd
 ``` bash
