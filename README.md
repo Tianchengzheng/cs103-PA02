@@ -128,7 +128,7 @@ item #     amount     category   date       description
 1          5.0        food       2022/03/23 5 dolla footlong              
 2          9.0        food       2022/03/23 2 footlongs                   
 > 5
-Enter transaction amount: 6
+Enter transaction amount: 6
 Enter transaction category: food
 Enter transaction date (yyyy/mm/dd): 2022/03/22
 Enter transaction description: overpriced smoothie
