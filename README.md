@@ -4,8 +4,9 @@
 
 This app uses SQL to run an app that tracks a user's transactions. Transactions can be added, searched for, shown, deleted, and summarized based on categories and dates.
 
-Below is a script showing pylint and pytest results, and demonstrating the app usage:
+Below is a script showing pylint and pytest results, and demonstrating the app usage. This is copyied from the transcript.
 
+# script start and cd
 ``` bash
 
 Script started on Wed Mar 23 22:06:23 2022
@@ -17,6 +18,10 @@ Restored session: Wed Mar 23 21:39:30 EDT 2022
 
 [1m[7m%[27m[1m[0m                                                                               
  
+```
+# pylint testing
+
+``` bash  
 ]7;file://irias-mbp.dyn.brandeis.edu/Users/iwang/Desktop/MyFiles/Spring2022/Cosi103a/cs103-PA02/pa02
 [0m[27m[24m[J(base) iwang@irias-mbp pa02 % [K[?2004hppyling t transactions.py[1m [0m[0m [?2004l
 
@@ -38,6 +43,11 @@ Your code has been rated at 9.74/10 (previous run: 9.74/10, +0.00)
 
 [1m[7m%[27m[1m[0m                                                                               
  
+```
+# pytest testing
+
+``` bash  
+
 ]7;file://irias-mbp.dyn.brandeis.edu/Users/iwang/Desktop/MyFiles/Spring2022/Cosi103a/cs103-PA02/pa02
 [0m[27m[24m[J(base) iwang@irias-mbp pa02 % [K[?2004hppytest[?2004l
 
@@ -52,6 +62,12 @@ test_transactions.py [32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0
 
 [32m============================== [32m[1m10 passed[0m[32m in 0.24s[0m[32m ==============================[0m
 [1m[7m%[27m[1m[0m                                                                          
+ 
+ ```
+# run the app demonstration
+Numbers input correspond to shown menu items.
+
+``` bash  
  
 ]7;file://irias-mbp.dyn.brandeis.edu/Users/iwang/Desktop/MyFiles/Spring2022/Cosi103a/cs103-PA02/pa02
 [0m[27m[24m[J(base) iwang@irias-mbp pa02 % [K[?2004hppython3 tracker.y py[?2004l
@@ -112,10 +128,10 @@ item #     amount     category   date       description
 1          5.0        food       2022/03/23 5 dolla footlong              
 2          9.0        food       2022/03/23 2 footlongs                   
 > 5
-Enter transaction amount:6
+Enter transaction amount: 6
 Enter transaction category: food
 Enter transaction date (yyyy/mm/dd): 2022/03/22
-Enter transaction description:  overpriced smoothie
+Enter transaction description: overpriced smoothie
 > 4
 
 
@@ -127,7 +143,7 @@ item #     amount     category   date       description
 > 5
 Enter transasction amount: 1000
 Enter transaction category: tech
-Enter transaction date (yyyy/mm/dd): 2021/05/24
+Enter transaction date (yyyy/mm/dd): 2021/05/24
 Enter transaction description: computer
 > 4
 
@@ -141,7 +157,7 @@ item #     amount     category   date       description
 > 5
 Enter transaction amount: 20
 Enter transaction category: tech
-Enter transaction date (yyyy/mm/dd): 2022/01/06
+Enter transaction date (yyyy/mm/dd): 2022/01/06
 Enter transaction description: keyboard
 > 4
 
@@ -186,6 +202,12 @@ food       20.0
 tech       1020.0    
 > 0
 bye
+
+
+```
+# end scripting
+
+``` bash  
 [1m[7m%[27m[1m[0m                                                                               
  
 ]7;file://irias-mbp.dyn.brandeis.edu/Users/iwang/Desktop/MyFiles/Spring2022/Cosi103a/cs103-PA02/pa02
