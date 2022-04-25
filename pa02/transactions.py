@@ -48,6 +48,10 @@ class Transaction():
         con.commit()
         con.close()
         return to_tran_dict_list(tuples)
+    
+    # Methods are labeled by name, but in reality code was mostly written and debugged together.
+
+    # Jason
     def add(self, item):
         ''' add a transaction to the transactions table.
             this returns the item# of the inserted element
@@ -63,6 +67,7 @@ class Transaction():
         con.close()
         return last_item[0]
 
+    # Jason
     def delete(self, item):
         '''Deletes a transaction'''
         con = sqlite3.connect(self.dbfile)
@@ -102,6 +107,7 @@ class Transaction():
         by_date = cur.fetchall()
         con.close()
         return to_tran_dict_list_date(by_date)
+
     # Tiancheng Zheng
     def summarize_by_category(self):
         '''Groups the transactions by category'''
@@ -111,6 +117,7 @@ class Transaction():
         by_category = cur.fetchall()
         con.close()
         return to_tran_dict_list_category(by_category)
+
     def select_one(self, rowid):
         ''' return a transaction with a specified rowid '''
         con = sqlite3.connect(self.dbfile)
