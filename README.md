@@ -76,9 +76,9 @@ no items to print
 id  name       description                   
 ---------------------------------------------
 > 5
-Enter transasction amount: 5
+Enter transaction amount: 5
 Enter transaction category: food
-Enter transaction date (yyyy/mm/dd): 2021/  2/03/23
+Enter transaction date (yyyy/mm/dd): 2022/03/23
 Enter transaction description: 5 dolla footlong
 > 4
 
@@ -87,12 +87,12 @@ item #     amount     category   date       description
 ----------------------------------------
 1          5.0        food       2022/03/23 5 dolla footlong              
 > 5
-Enter transasction amount: 9
-Enter transaction category: 2022/01/06    3/23
+Enter tranasction amount: 9
+Enter transaction category: 2022/03/23
 Enter transaction date (yyyy/mm/dd): mistake
 Enter transaction description: oops
 > 6
-Enter transacton number: 2
+Enter transaction number: 2
 > 4
 
 
@@ -100,7 +100,7 @@ item #     amount     category   date       description
 ----------------------------------------
 1          5.0        food       2022/03/23 5 dolla footlong              
 > 5
-Enter transasction amount: 9
+Enter transaction amount: 9
 Enter transaction category: food
 Enter transaction date (yyyy/mm/dd): 2022/03/23
 Enter transaction description: 2 footlongs
@@ -112,10 +112,10 @@ item #     amount     category   date       description
 1          5.0        food       2022/03/23 5 dolla footlong              
 2          9.0        food       2022/03/23 2 footlongs                   
 > 5
-Enter transasction amount: 2022/0      6
+Enter transaction amount:6
 Enter transaction category: food
 Enter transaction date (yyyy/mm/dd): 2022/03/22
-Enter transaction description: sm  ex  overpriced smoothie
+Enter transaction description:  overpriced smoothie
 > 4
 
 
@@ -127,8 +127,8 @@ item #     amount     category   date       description
 > 5
 Enter transasction amount: 1000
 Enter transaction category: tech
-Enter transaction date (yyyy/mm/dd): 20  2021/0502  /24
-Enter transaction description: expevsi   sove   ive          pricy ey Macboo             computer
+Enter transaction date (yyyy/mm/dd): 2021/05/24
+Enter transaction description: computer
 > 4
 
 
@@ -139,9 +139,9 @@ item #     amount     category   date       description
 3          6.0        food       2022/03/22 overpriced smoothie           
 4          1000.0     tech       2021/05/24 computer                      
 > 5
-Enter transasction amount: 20
+Enter transaction amount: 20
 Enter transaction category: tech
-Enter transaction date (yyyy/mm/dd): 0 2022/08/   01/06
+Enter transaction date (yyyy/mm/dd): 2022/01/06
 Enter transaction description: keyboard
 > 4
 
